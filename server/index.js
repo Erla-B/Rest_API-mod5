@@ -2,6 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
 const cors = require('cors');
+const uri = "mongodb+srv://restAPI:pYORlO4NajWvFZnW@restapi.ibfvuoh.mongodb.net/?retryWrites=true&w=majority";
+
+
+mongoose.set('strictQuery', true);
 
 const app = express();
 //use express.json() to get data into json format

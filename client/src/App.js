@@ -8,7 +8,7 @@ function App() {
   const [isUpdating, setIsUpdating] = useState('');
   const [updateItemText, setUpdateItemText] = useState('');
 
-  //add new todo item to database
+  // Add new todo item to database
   const addItem = async (e) => {
     e.preventDefault();
     try{
@@ -20,7 +20,7 @@ function App() {
     }
   }
 
-  //Create function to fetch all todo items from database -- we will use useEffect hook
+  // Create function to fetch all todo items from database -- we will use useEffect hook
   useEffect(()=>{
     const getItemsList = async () => {
       try{
@@ -45,7 +45,7 @@ function App() {
     }
   }
 
-  //Update item
+  // Update item
   const updateItem = async (e) => {
     e.preventDefault()
     try{
@@ -59,7 +59,7 @@ function App() {
       console.log(err);
     }
   }
-  //before updating item we need to show input field where we will create our updated item
+  // Before updating item we need to show input field where we will create our updated item
   const renderUpdateForm = () => (
     <form className="update-form" onSubmit={(e)=>{updateItem(e)}} >
       <input className="update-new-input" type="text" placeholder="New Item" onChange={e=>{setUpdateItemText(e.target.value)}} value={updateItemText} />
@@ -83,7 +83,7 @@ function App() {
               ? renderUpdateForm()
               : <>
                   <p className="item-content">{item.item}</p>
-                  <button className="update-item" onClick={()=>{setIsUpdating(item._id)}}>Update</button>
+                  <button className="update-item" onClick={()=>{setIsUpdating(item._id)}}>Edit</button>
                   <button className="delete-item" onClick={()=>{deleteItem(item._id)}}>Delete</button>
                 </>
             }
